@@ -2,4 +2,5 @@ A class to store objects containing book information. A controller class to take
 
 
  --Added GUI to LMS Phase 1
+ 
  --Updated with Database functionality
