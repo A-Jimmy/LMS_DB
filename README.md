@@ -11,3 +11,5 @@ A class to store objects containing book information. A controller class to take
 
  
  --Updated with Database functionality
+
+-- Added html download for Javadoc
