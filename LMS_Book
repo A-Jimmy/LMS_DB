@@ -21,10 +21,22 @@ public class LMS {
 
     private String dueDate;
 
+    /**
+     * Calls addBook method for user to enter book information
+     */
     public LMS() {
         addBook();
     }
 
+    /**
+     * Book information
+     * @param barcode unique barcode for book
+     * @param title title of book
+     * @param author author of book
+     * @param status availability of book (checked in/out)
+     * @param genre genre of book
+     * @param dueDate date for book to be returned
+     */
     public LMS(int barcode, String title, String author, String status, String genre, String dueDate) {
 
         this.barcode = barcode;
@@ -74,11 +86,11 @@ public class LMS {
         return barcode + ","  + title + "," + author + "," + status + "," + genre + "," + dueDate;
     }
 
-    /*
-    Method name:addBook()
-    Takes in user input to set the title and author of class book
-    Adds book to database
-    */
+
+
+    /***
+     * Takes in user input to set book information. Adds to database and list
+     */
     public void addBook() {
         String barcodeInput = JOptionPane.showInputDialog("Enter barcode");
         int barcode = Integer.parseInt(barcodeInput);
