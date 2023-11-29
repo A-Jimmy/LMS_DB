@@ -20,7 +20,13 @@ import java.util.Scanner;
 
 public class LMSController {
 
-
+    /***
+     * Starts program for Library Management System. Integrates with a database and arraylist to allow
+     * users to add book information to a collection/database, with methods to add a book, remove a book,
+     * check out a book, check in a book, and update and show contents
+     * @param args main program
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
 
         ArrayList<LMS> collectionList = new ArrayList<LMS>();
@@ -28,14 +34,14 @@ public class LMSController {
         //Ask user for file name
         //  String getUserFile = JOptionPane.showInputDialog("Start by entering file name");
 
-        File fileToEdit = new File("booklist.txt");
+        File fileToEdit = new File("C:\\Users\\hider\\IdeaProjects\\LMS_JDBC\\booklist.txt");
 
         while (!fileToEdit.exists()) {
             String getUserFileError = JOptionPane.showInputDialog("File not found, try again");
             ;
 
-            fileToEdit = new File(getUserFileError);
-        }
+           fileToEdit = new File(getUserFileError);
+       }
 
         readFile(fileToEdit);
 
@@ -65,9 +71,7 @@ public class LMSController {
 
             switch (choice) {
                 case 1:
-/*Method name:addBookToList(ArrayList<LMS> arrayList);
-Uses LMS class to add an object of type LMS to collection ArrayList
-*/
+
                     addBookToList(collectionList);
 
 
@@ -75,9 +79,7 @@ Uses LMS class to add an object of type LMS to collection ArrayList
                     break;
                 case 2:
 
-/*Method name: removeBookByID(ArrayList<LMS> arrayList)
-Asks user for barcode number to remove book from list
- */
+
                     removeBook(collectionList);
 
                     writeToFile(fileToEdit, collectionList);
@@ -88,18 +90,14 @@ Asks user for barcode number to remove book from list
                     readFile(fileToEdit);
                     break;
                 case 4:
- /*  Method name: checkOut(ArrayList<LMS> arrayList);
- Ask user for book title to check out and sets status to "checked out"
-  */
+
                     checkOut(collectionList);
 
                     writeToFile(fileToEdit, collectionList);
                     readFile(fileToEdit);
                     break;
                 case 5:
- /*  Method name: checkIn(ArrayList<LMS> arrayList);
- Ask user for book title to check in and sets status to "checked in"
-  */
+
                     checkIn(collectionList);
 
                     writeToFile(fileToEdit, collectionList);
@@ -118,10 +116,11 @@ Asks user for barcode number to remove book from list
         }
     }
 
-    /*
-    Method name: addBookToList(ArrayList<LMS> arrayList)
-    Adds a user entry to an array list of class LMS and sets an id number
-    Adds book to database
+
+    /***
+     * Calls addBook method from LMS class. Takes in user input for book information.
+     * Adds to arraylist and updated with database functionality
+     * @param arrayList arrayList of books
      */
     public static void addBookToList(ArrayList<LMS> arrayList) {
         arrayList.add(new LMS());
@@ -129,11 +128,11 @@ Asks user for barcode number to remove book from list
 
     }
 
-    /*
-    Method name: removeBook(ArrayList<LMS> arrayList)
-    Asks user for barcode or title to remove book from list
-    Removes book from database by title or barcode
 
+
+    /***
+     * Method to delete a book from a connected database and arraylist by title or barcode
+     * @param arrayList arraylist to remove user input from
      */
     public static void removeBook(ArrayList<LMS> arrayList) {
         String url = "jdbc:mysql://localhost:3306/JDBC_LMS";
@@ -208,9 +207,11 @@ Asks user for barcode number to remove book from list
     }
 
 
-    /*Method name: readFile(File fileP)
-    Prints out contents from text file
-    */
+    /***
+     * Prints out contents of file
+     * @param fileP file to read
+     * @throws IOException
+     */
     public static void readFile(File fileP) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(fileP));
         String read;
@@ -226,11 +227,14 @@ Asks user for barcode number to remove book from list
 
     }
 
-    /*Method name:checkOut(ArrayList<LMS> arrayList)
-        Lists the books in file, asks user for title of book,
-        check for availability, set book status to checked out, and updates due date
-         Updates Database
-         */
+
+
+    /***
+     * Updated method to include a database functionality which takes in arraylist.
+     * Lists books in file/database, asks user for title of books, checks for availability,
+     * sets book status to checked out, and updates due date
+     * @param arrayList list of books
+     */
     public static void checkOut(ArrayList<LMS> arrayList) {
         LocalDate date = LocalDate.now();
         LocalDate due = date.plusDays(30);
@@ -275,10 +279,12 @@ Asks user for barcode number to remove book from list
     }
 
 
-    /*Method name:checkIn(ArrayList<LMS> arrayList)
-    Lists the books in file, asks user for title of book,
-    set book status to checked in, and updates due date
-    Updates Database
+
+
+    /**
+     * Updated for use with a database and arraylist.
+     * Lists collection of books, asks user for a title, and sets that book status to checked in and updates due date
+     * @param arrayList arrayList of type LMS objects
      */
     public static void checkIn(ArrayList<LMS> arrayList) {
         String url = "jdbc:mysql://localhost:3306/JDBC_LMS";
@@ -319,10 +325,15 @@ Asks user for barcode number to remove book from list
         }
     }
 
-    /*Method name:writeToFile(File file,ArrayList<LMS> arrayList) throws IOException
-    Method to write current arraylist to file
+
+
+    /**
+     * Writes arraylist contents into a file.
+     * @param file file to be written to
+     * @param arrayList list of books
+     * @throws IOException
      */
-    public static void writeToFile(File file, ArrayList<LMS> arrayList) throws IOException {
+     public static void writeToFile(File file, ArrayList<LMS> arrayList) throws IOException {
         FileWriter fw = new FileWriter(file);
         for (LMS string : arrayList) {
             fw.write(string + System.lineSeparator());
