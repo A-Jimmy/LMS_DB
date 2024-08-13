@@ -1,4 +1,4 @@
-Files that create library management system
+Library Management System
 
 A class to store objects containing book information. A controller class to take user input and create a text file of a list of books. Menu options allow user to add, remove, and list current list from file. 
 
@@ -6,12 +6,10 @@ A class to store objects containing book information. A controller class to take
    Updates:
 
    
- --Added functionalities to LMS system to recieve barcode, change status to checked in/out, and update due date.
+ -- Functionalities to to receive barcode, change status to checked in/out, and update due date.
 
+ -- Added GUI
 
- --Added GUI to LMS Phase 1
+ -- Updated with Database functionality
 
- 
- --Updated with Database functionality
-
--- Added html download for Javadoc
+ -- Added html download for Javadoc
