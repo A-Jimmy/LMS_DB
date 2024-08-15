@@ -1,10 +1,3 @@
-/*
-Andres Jimmy
-Software Development I - CEN 3024
-August 9, 2023
-LMS Class that asks for user input for book information
- */
-
 package org.example;
 
 import javax.swing.*;
