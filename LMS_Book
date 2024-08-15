@@ -106,9 +106,9 @@ public class LMS {
 
 
         //Database connection
-        String url = "jdbc:mysql://localhost:3306/JDBC_LMS";
-        String uname = "JDBCuser";
-        String password = "genPass1";
+        String url = "jdbc:mysql://localhost:3306";
+        String uname = "MySQLUser";
+        String password = "MySQLPassword";
         String query = "select * from BookData";
 
         try{
