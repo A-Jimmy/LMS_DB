@@ -135,9 +135,9 @@ public class LMSController {
      * @param arrayList arraylist to remove user input from
      */
     public static void removeBook(ArrayList<LMS> arrayList) {
-        String url = "jdbc:mysql://localhost:3306/JDBC_LMS";
-        String uname = "JDBCuser";
-        String password = "genPass1";
+        String url = "jdbc:mysql://localhost:3306";
+        String uname = "MySQLUser";
+        String password = "MySQLPassword";
         String query = "select * from BookData";
         String list = "";
         for (int i = 0; i < arrayList.size(); i++) {
@@ -287,9 +287,9 @@ public class LMSController {
      * @param arrayList arrayList of type LMS objects
      */
     public static void checkIn(ArrayList<LMS> arrayList) {
-        String url = "jdbc:mysql://localhost:3306/JDBC_LMS";
-        String uname = "JDBCuser";
-        String password = "genPass1";
+        String url = "jdbc:mysql://localhost:3306";
+        String uname = "MySQLUser";
+        String password = "MySQLPassword";
 
         String list = "";
         for (int i = 0; i < arrayList.size(); i++) {
